@@ -1,24 +1,27 @@
 {
-  "name": "pipilu",
-  "version": "0.0.0",
-  "description": "pipilu\r ======",
-  "main": "server.js",
-  "engines": {
-    "node": "0.8.x"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Pamakids/pipilu.git"
-  },
-  "author": "",
-  "license": "BSD",
-  "readmeFilename": "README.md",
-  "gitHead": "439038ceba120e4eabb867beec1a364a6949ca44",
+  "name": "WebMatrixExpressSite",
+  "version": "0.1.0",
+  "author": "The WebMatrix Team <webmatrix@microsoft.com>",
+  "description": "A simple boilerplate for building node applications on Windows Azure (or wherever)",
+  "contributors": [
+    {
+      "name": "Justin Beckwith",
+      "email": "justbe@microsoft.com"
+    }
+  ],
+  "main": "./server.js",
+  "keywords": [
+    "azure",
+    "boilerplate",
+    "express"
+  ],
   "dependencies": {
-    "hapi": "~0.16.0"
+    "express": "2.5.7",
+    "jade": ">= 0.0.1"
+  },
+  "noAnalyze": true,
+  "license": "Apache",
+  "engines": {
+    "node": ">=0.6.14"
   }
 }

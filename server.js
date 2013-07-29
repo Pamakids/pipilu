@@ -1,19 +1,36 @@
-var Hapi = require('hapi');
 
+/**
+ * Module dependencies.
+ */
 
-// Declare internals
+var express = require('express')
+  , routes = require('./routes');
 
-var internals = {};
+var app = module.exports = express.createServer();
 
-internals.main = function () {
+// Configuration
 
-    var http = new Hapi.Server(process.env.PORT || 8080);
+app.configure(function(){
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'html');
+  app.use(express.bodyParser());
+  app.use(express.methodOverride());
+  app.use(app.router);
+  app.use(express.static(__dirname + '/safebook'));
+});
 
-    http.route([
-        { method: 'GET', path: '/safebook', handler: { file: { path: './safebook/index.html'} } }
-    ]);
+app.configure('development', function(){
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+});
 
-    http.start();
-};
+app.configure('production', function(){
+  app.use(express.errorHandler());
+});
 
-internals.main();
+// Routes
+
+app.get('/', routes.index);
+app.get('/safebook', routes.safebook);
+
+app.listen(process.env.port || 3000);
+console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
