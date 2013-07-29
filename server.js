@@ -29,7 +29,7 @@ app.configure('production', function(){
 
 // Routes
 
-app.get('/', routes.index);
+app.get('/', routes.safebook);
 app.get('/safebook', routes.safebook);
 
 app.listen(process.env.port || 3000);
